@@ -4,6 +4,7 @@ import numpy as np
 import pickle
 from fastapi import FastAPI
 import uvicorn
+import gunicorn
 from typing import List
 from pydantic import BaseModel
 from sklego.meta import Thresholder
@@ -24,7 +25,7 @@ class class_testdata(BaseModel):
     #    prediction: float        
     # app object creation
 app = FastAPI()
-pickle_in = open('C:\\Users\\USER\\Documents\\P7dataset\\files\\mlflow_model\\model.pkl', 'rb') # load threshold model for probability prediction\n",
+pickle_in = open('C:\\Users\\USER\\Documents\\P7dataset\\mlflow_model\\model.pkl', 'rb') # load threshold model for probability prediction\n",
 classifier = pickle.load(pickle_in)
 # index route, opens automatically on
 @app.get('/')
