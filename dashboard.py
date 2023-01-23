@@ -26,10 +26,10 @@ reduce_header_height_style = """
 """
 st.markdown(reduce_header_height_style, unsafe_allow_html=True)
 
-prediction_data = pd.read_csv("C:\\Users\\USER\\Documents\\P7dataset\\features_test.csv")
+prediction_data = pd.read_csv("features_test.csv")
 #prediction_data = prediction_data.drop(columns='AmtIncomeTotal')
 # loading the client info file prepared in modeling code
-client_info = pd.read_csv('C:\\Users\\USER\\Documents\\P7dataset\\test_client_info.csv')
+client_info = pd.read_csv('test_client_info.csv')
 
 prediction_data_info = pd.merge(prediction_data, client_info, how='inner', left_on='IdClient', right_on='SK_ID_CURR')
 #prediction_data_info = prediction_data_info.drop(columns='TARGET')
@@ -82,10 +82,10 @@ inputs = {
 def get_shap_data():
 
     # loading the trained model for compute shap value
-    pickle_in = open('C:\\Users\\USER\\Documents\\P7dataset\\mlflow_model_0\\model.pkl', 'rb') # load no-threshold model for shap computation
+    pickle_in = open('mlflow_model_0\\model.pkl', 'rb') # load no-threshold model for shap computation
     model = pickle.load(pickle_in)
 
-    train_sample = pd.read_csv('C:\\Users\\USER\\Documents\\P7dataset\\features_train.csv')
+    train_sample = pd.read_csv('features_train.csv')
     X = train_sample.drop(columns=['IdClient', 'Target'])
     y = train_sample['Target']
     model.fit(X,y)
