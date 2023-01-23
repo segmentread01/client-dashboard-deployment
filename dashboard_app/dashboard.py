@@ -1,10 +1,14 @@
 
+import sys
+sys.path.append("..//prediction_app//")
+from appfile import client_predict
+
 import pandas as pd
 import numpy as np
 import streamlit as st
 import requests
 import json
-from appfile import client_predict
+
 import plotly
 
 import plotly.graph_objects as go
@@ -26,10 +30,10 @@ reduce_header_height_style = """
 """
 st.markdown(reduce_header_height_style, unsafe_allow_html=True)
 
-prediction_data = pd.read_csv("features_test.csv")
+prediction_data = pd.read_csv("..\\common_files\\features_test.csv")
 #prediction_data = prediction_data.drop(columns='AmtIncomeTotal')
 # loading the client info file prepared in modeling code
-client_info = pd.read_csv('test_client_info.csv')
+client_info = pd.read_csv('..\\common_files\\test_client_info.csv')
 
 prediction_data_info = pd.merge(prediction_data, client_info, how='inner', left_on='IdClient', right_on='SK_ID_CURR')
 #prediction_data_info = prediction_data_info.drop(columns='TARGET')
@@ -82,10 +86,10 @@ inputs = {
 def get_shap_data():
 
     # loading the trained model for compute shap value
-    pickle_in = open('mlflow_model_0\\model.pkl', 'rb') # load no-threshold model for shap computation
+    pickle_in = open('..\\common_files\\mlflow_model_0\\model.pkl', 'rb') # load no-threshold model for shap computation
     model = pickle.load(pickle_in)
 
-    train_sample = pd.read_csv('features_train.csv')
+    train_sample = pd.read_csv('..\\common_files\\features_train.csv')
     X = train_sample.drop(columns=['IdClient', 'Target'])
     y = train_sample['Target']
     model.fit(X,y)
