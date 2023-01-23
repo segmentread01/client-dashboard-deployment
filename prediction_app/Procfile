@@ -1,1 +1,1 @@
-web: sh setup.sh && uvicorn appfile:app --reload
+web: sh setup.sh && uvicorn appfile:app --host=127.0.0.1 --port=${PORT:8000}
