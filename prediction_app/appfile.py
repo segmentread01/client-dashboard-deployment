@@ -4,6 +4,7 @@ import numpy as np
 import pickle
 from fastapi import FastAPI
 import uvicorn
+import gunicorn
 from typing import List
 from pydantic import BaseModel
 from sklego.meta import Thresholder
