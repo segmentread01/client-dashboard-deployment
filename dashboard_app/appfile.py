@@ -24,7 +24,7 @@ class class_testdata(BaseModel):
     #    prediction: float        
     # app object creation
 app = FastAPI()
-pickle_in = open('C:\\Users\\USER\\Documents\\P7dataset\\files\\mlflow_model\\model.pkl', 'rb') # load threshold model for probability prediction\n",
+pickle_in = open('C:\\Users\\USER\\Documents\\P7dataset\\mlflow_model\\model.pkl', 'rb') # load threshold model for probability prediction\n",
 classifier = pickle.load(pickle_in)
 # index route, opens automatically on
 @app.get('/')

@@ -1,0 +1,23 @@
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.8.10
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.0.2
+mlflow_version: 2.1.1
+model_uuid: 90ea0efd86d54ffdbb02fce37c18b9fc
+signature:
+  inputs: '[{"name": "DAYS_EMPLOYED", "type": "long"}, {"name": "EXT_SOURCE_3", "type":
+    "double"}, {"name": "DAYS_BIRTH", "type": "long"}, {"name": "APARTMENTS_AVG",
+    "type": "double"}, {"name": "DAYS_REGISTRATION", "type": "double"}, {"name": "CREDIT_TYPE_Microloan",
+    "type": "double"}, {"name": "PREV_DAYS_DECISION_MIN", "type": "double"}]'
+  outputs: '[{"name": "TARGET", "type": "long"}]'
+utc_time_created: '2023-01-22 12:36:52.899269'
