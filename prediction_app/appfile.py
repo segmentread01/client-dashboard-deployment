@@ -1,13 +1,16 @@
 
-import pandas as pd
-import numpy as np
 import pickle
 from fastapi import FastAPI
 import uvicorn
 import gunicorn
-from typing import List
 from pydantic import BaseModel
+from lightgbm import LGBMClassifier
 from sklego.meta import Thresholder
+
+
+app = FastAPI()
+pickle_in = open('mlflow_model/model.pkl', 'rb') # load threshold model for probability prediction\n",
+classifier = pickle.load(pickle_in)
 
 # define class which describes test data measurements
 class class_testdata(BaseModel):
@@ -21,21 +24,15 @@ class class_testdata(BaseModel):
     PrevDaysDecisionMin: float
     IdClient: int
     
-    #class class_item(BaseModel):
-    #    prediction: float        
-    # app object creation
-app = FastAPI()
-pickle_in = open('..\\common_files\\mlflow_model\\model.pkl', 'rb') # load threshold model for probability prediction\n",
-classifier = pickle.load(pickle_in)
+#class class_item(BaseModel):
+#    prediction: float        
+# app object creation
+
 # index route, opens automatically on
 @app.get('/')
-def index():
-    return {'message': 'Welcome!'}
+def root():
+    return {'message': 'Welcome! This is an fastapi application. You can make prdiction on the client credit default probability by entering values in listed features!'}
 
-# route with a single parameter
-@app.get('/{number}')
-def get_name(name: int):
-    return {'Welcome to page': {number}}
 
 # make prediction functionality\n",
 #@app.post('/predict', response_model=class_item) # the API's name
@@ -57,5 +54,3 @@ async def client_predict(data: class_testdata):
     prediction_default = prediction[0][0]
    
     return prediction_default
-if __name__ == '__main__':
-    uvicorn.run(app, host='127.0.0.1', port= 8000)
