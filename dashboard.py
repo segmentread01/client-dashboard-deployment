@@ -10,7 +10,6 @@ import requests
 import json
 
 import plotly
-
 import plotly.graph_objects as go
 #import plotly.express as px
 from matplotlib import pyplot as plt

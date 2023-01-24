@@ -9,7 +9,7 @@ from sklego.meta import Thresholder
 
 
 app = FastAPI()
-pickle_in = open('mlflow_model/model.pkl', 'rb') # load threshold model for probability prediction\n",
+pickle_in = open('common_files/mlflow_model/model.pkl', 'rb') # load threshold model for probability prediction\n",
 classifier = pickle.load(pickle_in)
 
 # define class which describes test data measurements
