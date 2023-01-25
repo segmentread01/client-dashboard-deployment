@@ -29,13 +29,14 @@ class class_testdata(BaseModel):
 # app object creation
 
 # index route, opens automatically on
-@app.get('/')
-def root():
-    return {'message': 'Welcome! This is an fastapi application. You can make prdiction on the client credit default probability by entering values in listed features!'}
-
-
+#@app.get('/')
+#def root():
+#    return {'message': 'Welcome! This is an fastapi application. You can make prdiction on the client credit default probability by entering values in listed features!'}
+#
+#
 # make prediction functionality\n",
 #@app.post('/predict', response_model=class_item) # the API's name
+
 @app.post('/predict')
 async def client_predict(data: class_testdata):
     data = data.dict()
