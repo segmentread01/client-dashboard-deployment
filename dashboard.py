@@ -1,6 +1,6 @@
 
-import sys
-sys.path.append("prediction_app/")
+#import sys
+#sys.path.append("prediction_app/")
 from appfile import client_predict
 
 import pandas as pd
@@ -102,6 +102,7 @@ def get_shap_data():
 
 def main():
     fast_uri = "https://fast-api-app-deployment.herokuapp.com/"
+    #fast_uri = "http://0.0.0.0:8000/predict"
 
     # sidebar
     st.sidebar.write('Client: ', IdClient)

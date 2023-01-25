@@ -54,3 +54,6 @@ async def client_predict(data: class_testdata):
     prediction_default = prediction[0][0]
    
     return prediction_default
+
+#if __name__ == '__main__':
+#    uvicorn.run(app, host='127.0.0.1', port= 8000)
