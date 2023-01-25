@@ -101,7 +101,7 @@ def get_shap_data():
 
 
 def main():
-    fast_uri = "https://fast-api-app-deployment.herokuapp.com/"
+    fast_uri = "https://fast-api-app-deployment.herokuapp.com"
     #fast_uri = "http://0.0.0.0:8000/predict"
 
     # sidebar
