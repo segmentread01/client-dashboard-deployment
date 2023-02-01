@@ -179,10 +179,10 @@ def main():
             fig.add_trace(go.Indicator(value = proba,
                                        number = {'valueformat': '.2%', 'font':{'size':24}},
                                        gauge = {'axis': {'range': [0, 1],'dtick': 0.76},
-                                                'bar': {'color': 'blue'},
+                                                'bar': {'color': 'green'},
                                                 'steps': [
-                                                    {'range': [0, 0.76], 'color': 'red'},
-                                                        {'range': [0.76, 1], 'color': 'green'}
+                                                    {'range': [0, 0.76], 'color':'white'},
+                                                        {'range': [0.76, 1], 'color':'white'}
                                                 ]}
                                                     ))
 
